@@ -10,21 +10,27 @@
     <title>Document</title>
 
     <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         .game{
             display: flex;
             flex-wrap: wrap;
             height: 90vh;
             align-items: center;
             justify-content: center;
-             min-width: 80vh; 
-             max-width: 80vh; 
+             width: 80vh; 
+             width: 80vh; 
              margin-right: 10vh;
         }
         .box{
+            margin: 0;
             display: flex;
             /* background-color: red; */
             height: 30vh;
-            min-width: 33%;
+            width: 33%;
             border: 1px solid black;
             color: red;
             /* text-align: center; */
@@ -36,37 +42,132 @@
             align-items: center;
             justify-content: center;
             display: flex;
-            height: 100vh;
+            height: 95vh;
             /* width: 100vh; */
 
         }
-        /* .user{
-            width: 40vh;
-            height: 100vh;
+
+        .restart{
+            font-size: 2vw;
+            border:0.2rem solid white;
+          
+            color: white;
             background-color: red;
-        } */
+            margin: 5px;
+            outline: 2px solid red;
+           
+        }
+        .restart:hover{
+            margin: auto;
+        }
+        .bd{
+            background-color: red;
+            padding: 2px;
+            width: fit-content;
+        }
+        .nav{
+            background-color: rgb(44, 34, 34);
+            color: white;
+        }
+        .bt{
+            border-top: 0;
+        }
+        .bl{
+            border-left: 0;
+        }
+        .br{
+            border-right: 0;
+        }
+        .bb{
+            border-bottom: 0;
+        }
+        .box:hover{
+            cursor: pointer;
+        }
+
+        @media screen and (max-width:800px) {
+            .contaniner{
+                flex-direction: column;
+            }
+            .game{
+                height: 60vh;
+            }
+            .box{
+                height: 20vh;
+                width: calc(60vh/3);
+            }
+        }
+
+        @media screen and (max-width:360px) {
+            .contaniner{
+                flex-direction: column;
+                height: 740px;
+            }
+            .game{
+                height: 340px;
+                width: 340px;
+                flex-wrap: wrap;
+                margin-right: 0;
+                align-items: center;
+                justify-content: center;
+                margin-top: 2px;
+            }
+            .box{
+                height: calc(340px/3);
+                width: calc(340px/3);
+                font-size: 10rem;
+            }
+            .rbtn{
+                justify-content: center;
+                display: flex;
+                width: 100vh;
+            }
+            .word{
+                display: none;
+            }
+            #winner{
+                font-size: 4rem;
+                text-align: center;
+            }
+            .wininfo{
+                text-align: center;
+            }
+        }
+
+
+
     </style>
 </head>
 <body>
     <!-- <div style="display: flex;"> -->
+
+        <div class="nav">
+            <h4>Welcome to game</h4>
+        </div>
     <div class="contaniner">
         <div class="game">
+            <div class="box bt bl"></div>
+            <div class="box bt"></div>
+            <div class="box bt br"></div>
+            <div class="box bl"></div>
             <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box br"></div>
+            <div class="box bl bb"></div>
+            <div class="box bb"></div>
+            <div class="box bb br"></div>
         </div>
        <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe dicta corrupti sequi voluptate perspiciatis at repellat a inventore pariatur? Ipsum molestias vero repudiandae quisquam possimus voluptate accusantium expedita a illum?</p> -->
        
-        <div style=" height: 100vh; min-width:  calc(100vh-70vh);">
-            <h1>Welcome to tic tac toe game :</h1>
-            <h1>Turn of : <span  class="turn"></span>  </h1>
+        <div  style=" height: 100vh; width:  calc(100vh-70vh);">
+            <h1 class="word ">Welcome to tic tac toe game :</h1>
+            <h1 class="wininfo">Turn of : <span  class="turn"></span> </h1>
             <h1 id="winner"></h1>
+
+            <div class="rbtn">
+                <div class="btn" >
+            <button onclick="restart()" class="restart">Restart</button>
+        </div>
+        </div>
         </div>
     
     </div>
